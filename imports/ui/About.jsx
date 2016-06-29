@@ -4,20 +4,11 @@ import { IonButton } from 'reactionic'
 
 export default class About extends React.Component {
 
-  logPlatform() {
-    console.log(this.context.ionPlatform.name)
-    console.log(this.context)
-
-  }
-
   render() {
     return (
       <div>
         <h2>About</h2>
-          <ul role='nav'>
-            <li><Link to='/'>Index</Link></li>
-          </ul>
-          <IonButton type="outline" onClick={this.logPlatform.bind(this)}>Show platform</IonButton>
+        <p>Meteor-React-Ionic-ES6-kitchensink example</p>
       </div>
 
     )
