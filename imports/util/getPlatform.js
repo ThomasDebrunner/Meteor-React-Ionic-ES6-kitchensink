@@ -29,8 +29,8 @@ export function getPlatform(platformOverride) {
     name: 'Android'
   };
 
-  if (platformOverride === 'iOS') { return iOS; }
-  if (platformOverride === 'Android') { return android; }
+  if (platformOverride.toLowerCase() === 'ios') { return iOS; }
+  if (platformOverride.toLowerCase() === 'android') { return android; }
 
   if (typeof cordova !== 'undefined' && cordova.platformId === 'ios') { return iOS; }
 

@@ -9,10 +9,6 @@ import About from '../imports/ui/About.jsx'
 import Overview from '../imports/ui/Overview.jsx'
 import Layout from '../imports/ui/Layout.jsx'
 
-function main() {
-
-}
-
 
 Meteor.startup(() => {
   render(
