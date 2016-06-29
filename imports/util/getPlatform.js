@@ -13,37 +13,40 @@ import React from 'react';
  * the platform we are running on
  */
 export function getPlatform(platformOverride) {
-  const isCordova = typeof Meteor !== 'undefined' && Meteor.isCordova;
+  const isCordova = typeof Meteor !== 'undefined' && Meteor.isCordova
   const iOS = {
     isIOS: true,
     isAndroid: false,
     isCordova: isCordova,
     transitionTimeOut: 450,
     name: 'iOS'
-  };
+  }
   const android = {
     isIOS: false,
     isAndroid: true,
     isCordova: isCordova,
     transitionTimeOut: 320,
     name: 'Android'
-  };
+  }
 
-  if (platformOverride.toLowerCase() === 'ios') { return iOS; }
-  if (platformOverride.toLowerCase() === 'android') { return android; }
+  if (platformOverride != null) {
+    if (platformOverride.toLowerCase() === 'ios') { return iOS }
+    if (platformOverride.toLowerCase() === 'android') { return android }
+  }
 
-  if (typeof cordova !== 'undefined' && cordova.platformId === 'ios') { return iOS; }
+
+  if (typeof cordova !== 'undefined' && cordova.platformId === 'ios') { return iOS }
 
   if(!!navigator.userAgent.match(/iPad/i)
      || !!navigator.userAgent.match(/iPhone/i)
      || !!navigator.userAgent.match(/iPod/i)
     ) {
-      return iOS;
+      return iOS
   }
 
-  if (typeof cordova !== 'undefined' && cordova.platformId === 'android') { return android; }
+  if (typeof cordova !== 'undefined' && cordova.platformId === 'android') { return android }
 
-  if (navigator.userAgent.indexOf('Android') > 0) { return android; }
+  if (navigator.userAgent.indexOf('Android') > 0) { return android }
 
   return {
     isIOS: false,
@@ -51,5 +54,5 @@ export function getPlatform(platformOverride) {
     isCordova: isCordova,
     transitionTimeOut: 450,
     name: 'Web'
-  };
-};
+  }
+}

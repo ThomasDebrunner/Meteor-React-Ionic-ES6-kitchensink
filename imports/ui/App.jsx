@@ -7,6 +7,7 @@ export default class App extends React.Component {
 
   constructor(props) {
     super()
+    console.log(props.location.query.platformOverride)
     this.state = {
       platformOverride: props.location.query.platformOverride
     }
